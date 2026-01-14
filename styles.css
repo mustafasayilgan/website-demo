@@ -454,23 +454,56 @@ section {
 }
 
 .service-card {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    perspective: 1000px;
+    height: 100%;
+    min-height: 280px;
+}
+
+.service-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+    min-height: 280px;
+}
+
+.service-card.flipped .service-card-inner {
+    transform: rotateY(180deg);
+}
+
+.service-card-front,
+.service-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
     background-color: var(--primary-white);
     border: 1px solid var(--border-gray);
-    border-radius: 0;
     padding: 2.75rem;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    position: relative;
-    overflow: hidden;
-    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    cursor: pointer;
     user-select: none;
     -webkit-user-select: none;
-    z-index: 1;
 }
 
-.service-card::before {
+.service-card-back {
+    transform: rotateY(180deg);
+    overflow-y: auto;
+}
+
+.service-card-front {
+    transform: rotateY(0deg);
+}
+
+.service-card-front::before {
     content: '';
     position: absolute;
     top: 0;
@@ -482,7 +515,7 @@ section {
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.service-card::after {
+.service-card-front::after {
     content: '';
     position: absolute;
     top: 0;
@@ -495,34 +528,44 @@ section {
     pointer-events: none;
 }
 
-.service-card:hover {
+.service-card:not(.flipped):hover .service-card-front {
     transform: translateY(-8px);
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05);
     border-color: var(--primary-black);
 }
 
-.service-card:hover::before {
+.service-card:not(.flipped):hover .service-card-front::before {
     transform: scaleY(1);
 }
 
-.service-card:hover::after {
+.service-card:not(.flipped):hover .service-card-front::after {
     opacity: 1;
+}
+
+.service-card.flipped .service-card-front {
+    transform: translateY(0);
+}
+
+.service-card-back {
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05);
+    border-color: var(--primary-black);
 }
 
 .service-icon {
     width: 64px;
     height: 64px;
     background-color: var(--light-gray);
-    border-radius: 8px;
+    border-radius: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 1.5rem;
     color: var(--primary-black);
     transition: all 0.3s ease;
+    position: relative;
 }
 
-.service-card:hover .service-icon {
+.service-card:hover .service-card-front .service-icon {
     background-color: var(--primary-black);
     color: var(--primary-white);
 }
@@ -546,13 +589,17 @@ section {
     align-self: flex-start;
 }
 
-.service-card:hover .service-arrow {
+.service-card:not(.flipped):hover .service-card-front .service-arrow {
     transform: translateX(8px);
 }
 
 .service-list {
     list-style: none;
     padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
 }
 
 .service-list li {
@@ -571,131 +618,18 @@ section {
     font-weight: bold;
 }
 
-/* Service Modal */
-.service-modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2000;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    pointer-events: none;
+.service-card-back .service-title {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-gray);
 }
 
-.service-modal.active {
-    display: flex;
-    opacity: 1;
-    pointer-events: auto;
+.service-card-back .service-list {
+    text-align: left;
+    margin-top: 0;
+    justify-content: flex-start;
 }
 
-.modal-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-}
-
-.modal-content {
-    position: relative;
-    background-color: var(--primary-white);
-    max-width: 600px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    margin: auto;
-    padding: 3rem;
-    border-radius: 0;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    transform: scale(0.9) translateY(20px);
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 2001;
-}
-
-.service-modal.active .modal-content {
-    transform: scale(1) translateY(0);
-}
-
-.modal-close {
-    position: absolute;
-    top: 1.5rem;
-    right: 1.5rem;
-    background: none;
-    border: none;
-    font-size: 2rem;
-    color: var(--text-gray);
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    line-height: 1;
-    padding: 0;
-}
-
-.modal-close:hover {
-    color: var(--primary-black);
-    transform: rotate(90deg);
-}
-
-.modal-icon {
-    width: 64px;
-    height: 64px;
-    background-color: var(--light-gray);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 2rem;
-    color: var(--primary-black);
-}
-
-.modal-icon svg {
-    width: 32px;
-    height: 32px;
-}
-
-.modal-title {
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    font-weight: 600;
-    color: var(--primary-black);
-    margin-bottom: 2rem;
-    line-height: 1.4;
-    letter-spacing: -0.01em;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-.modal-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.modal-list li {
-    padding: 0.875rem 0;
-    padding-left: 1.75rem;
-    position: relative;
-    color: var(--text-gray);
-    line-height: 1.7;
-    font-size: clamp(0.9375rem, 1.25vw, 1rem);
-    letter-spacing: -0.005em;
-}
-
-.modal-list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--primary-black);
-    font-weight: 600;
-}
 
 .services-footer {
     text-align: center;
@@ -979,16 +913,5 @@ section {
 
     .service-card {
         padding: 1.5rem;
-    }
-    
-    .modal-content {
-        padding: 2rem;
-        width: 95%;
-    }
-    
-    .modal-close {
-        top: 1rem;
-        right: 1rem;
-        font-size: 1.5rem;
     }
 }

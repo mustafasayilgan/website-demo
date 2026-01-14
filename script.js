@@ -305,58 +305,38 @@ function closeServiceModal() {
     document.body.style.overflow = '';
 }
 
-// Initialize service modal functionality when DOM is ready
-function initServiceModal() {
-    // Service card click handlers
+// Service card flip functionality
+function initServiceCards() {
     const serviceCards = document.querySelectorAll('.service-card');
-    console.log('Found service cards:', serviceCards.length);
     
-    serviceCards.forEach((card, index) => {
+    serviceCards.forEach((card) => {
         card.addEventListener('click', function(e) {
-            e.preventDefault();
             e.stopPropagation();
-            const serviceIndex = parseInt(this.getAttribute('data-service'));
-            console.log('Card clicked, service index:', serviceIndex);
-            if (!isNaN(serviceIndex) && serviceIndex >= 0) {
-                openServiceModal(serviceIndex);
-            }
+            // Toggle flip class
+            this.classList.toggle('flipped');
+            
+            // Close other flipped cards (optional - remove if you want multiple cards open)
+            serviceCards.forEach(otherCard => {
+                if (otherCard !== this && otherCard.classList.contains('flipped')) {
+                    otherCard.classList.remove('flipped');
+                }
+            });
         });
     });
-
-    // Modal close handlers
-    const modalClose = document.querySelector('.modal-close');
-    const modalOverlay = document.querySelector('.modal-overlay');
-
-    if (modalClose) {
-        modalClose.addEventListener('click', function(e) {
-            e.stopPropagation();
-            closeServiceModal();
-        });
-    }
-
-    if (modalOverlay) {
-        modalOverlay.addEventListener('click', function(e) {
-            if (e.target === modalOverlay) {
-                closeServiceModal();
-            }
-        });
-    }
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-            const modal = document.getElementById('serviceModal');
-            if (modal && modal.classList.contains('active')) {
-                closeServiceModal();
-            }
+    
+    // Close flipped cards when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!e.target.closest('.service-card')) {
+            serviceCards.forEach(card => {
+                card.classList.remove('flipped');
+            });
         }
     });
 }
 
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initServiceModal);
+    document.addEventListener('DOMContentLoaded', initServiceCards);
 } else {
-    // DOM is already loaded
-    initServiceModal();
+    initServiceCards();
 }
