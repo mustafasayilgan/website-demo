@@ -68,10 +68,12 @@ body {
 }
 
 .navbar-logo {
-    height: 40px;
+    height: 45px;
     width: auto;
     display: block;
     object-fit: contain;
+    filter: brightness(0);
+    transition: opacity 0.3s ease;
 }
 
 .navbar-logo[src=""],
@@ -190,7 +192,7 @@ body {
 }
 
 .hero-logo {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     animation: fadeInUp 1s ease;
     display: flex;
     justify-content: center;
@@ -198,16 +200,17 @@ body {
 }
 
 .logo-image {
-    max-width: 500px;
-    width: 100%;
+    max-width: 180px;
+    width: auto;
     height: auto;
-    filter: drop-shadow(0 4px 20px rgba(255, 255, 255, 0.3));
-    opacity: 0.98;
     object-fit: contain;
+    filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(255, 255, 255, 0.15));
+    opacity: 1;
+    display: block;
 }
 
 .logo-white {
-    filter: invert(1) drop-shadow(0 4px 20px rgba(255, 255, 255, 0.3));
+    filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(255, 255, 255, 0.15));
 }
 
 .logo-image[src=""],
@@ -526,15 +529,17 @@ section {
 }
 
 .footer-logo-image {
-    max-width: 200px;
-    width: 100%;
+    max-width: 120px;
+    width: auto;
     height: auto;
-    opacity: 0.95;
+    opacity: 0.9;
     object-fit: contain;
+    filter: brightness(0) invert(1);
+    display: block;
 }
 
 .footer-logo-image.logo-white {
-    filter: invert(1);
+    filter: brightness(0) invert(1);
 }
 
 .footer-logo-image[src=""],
@@ -660,7 +665,7 @@ section {
     }
 
     .logo-image {
-        max-width: 280px;
+        max-width: 200px;
     }
 
     .navbar-logo {
