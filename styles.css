@@ -71,6 +71,12 @@ body {
     height: 40px;
     width: auto;
     display: block;
+    object-fit: contain;
+}
+
+.navbar-logo[src=""],
+.navbar-logo:not([src]) {
+    display: none;
 }
 
 .logo-text {
@@ -197,6 +203,16 @@ body {
     height: auto;
     filter: drop-shadow(0 4px 20px rgba(255, 255, 255, 0.3));
     opacity: 0.98;
+    object-fit: contain;
+}
+
+.logo-white {
+    filter: invert(1) drop-shadow(0 4px 20px rgba(255, 255, 255, 0.3));
+}
+
+.logo-image[src=""],
+.logo-image:not([src]) {
+    display: none;
 }
 
 .hero-logo svg {
@@ -514,6 +530,16 @@ section {
     width: 100%;
     height: auto;
     opacity: 0.95;
+    object-fit: contain;
+}
+
+.footer-logo-image.logo-white {
+    filter: invert(1);
+}
+
+.footer-logo-image[src=""],
+.footer-logo-image:not([src]) {
+    display: none;
 }
 
 .footer-logo .logo-text {
