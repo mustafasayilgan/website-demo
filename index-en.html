@@ -91,22 +91,17 @@
                 </p>
             </div>
             <div class="services-grid">
-                <div class="service-card">
+                <div class="service-card" data-service="0">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
                         </svg>
                     </div>
                     <h3 class="service-title">Structural Design and Technical Review</h3>
-                    <ul class="service-list">
-                        <li>Reinforced concrete and steel structure design review</li>
-                        <li>Structural system optimization</li>
-                        <li>Compliance review of existing projects with regulations</li>
-                        <li>Technical evaluation of geotechnical investigation reports</li>
-                    </ul>
+                    <div class="service-arrow">→</div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-service="1">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
@@ -114,15 +109,10 @@
                         </svg>
                     </div>
                     <h3 class="service-title">Construction Site and Implementation Consulting</h3>
-                    <ul class="service-list">
-                        <li>Construction site technical consultancy</li>
-                        <li>Manufacturing quality control (concrete, reinforcement, formwork, insulation)</li>
-                        <li>Compliance inspection with implementation projects</li>
-                        <li>Construction site organization and work schedule tracking</li>
-                    </ul>
+                    <div class="service-arrow">→</div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-service="2">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <line x1="12" y1="1" x2="12" y2="23"/>
@@ -130,30 +120,20 @@
                         </svg>
                     </div>
                     <h3 class="service-title">Quantity Surveying, Estimation and Payment Certificates</h3>
-                    <ul class="service-list">
-                        <li>Detailed quantity takeoff</li>
-                        <li>Approximate cost calculations</li>
-                        <li>Preparation and review of payment certificates</li>
-                        <li>Estimate increases and revised quantity surveying work</li>
-                    </ul>
+                    <div class="service-arrow">→</div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-service="3">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
                         </svg>
                     </div>
                     <h3 class="service-title">Seismic Performance and Strengthening Consulting</h3>
-                    <ul class="service-list">
-                        <li>Preliminary risk assessment for existing buildings</li>
-                        <li>Interpretation of core sample and reinforcement detection results</li>
-                        <li>Technical monitoring of seismic performance analyses</li>
-                        <li>Technical and cost comparison of strengthening alternatives</li>
-                    </ul>
+                    <div class="service-arrow">→</div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-service="4">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -161,15 +141,10 @@
                         </svg>
                     </div>
                     <h3 class="service-title">Urban Transformation Technical Consulting</h3>
-                    <ul class="service-list">
-                        <li>Technical management of risky building process</li>
-                        <li>Feasibility studies for new construction</li>
-                        <li>Land share – construction area analyses</li>
-                        <li>Technical information and reporting to property owners</li>
-                    </ul>
+                    <div class="service-arrow">→</div>
                 </div>
 
-                <div class="service-card">
+                <div class="service-card" data-service="5">
                     <div class="service-icon">
                         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
@@ -178,12 +153,18 @@
                         </svg>
                     </div>
                     <h3 class="service-title">Client Representation and Technical Consulting</h3>
-                    <ul class="service-list">
-                        <li>Construction site control on behalf of the client</li>
-                        <li>Technical supervision of subcontractor work</li>
-                        <li>Preparation of contracts and technical specifications</li>
-                        <li>Technical opinion reports in disputes</li>
-                    </ul>
+                    <div class="service-arrow">→</div>
+                </div>
+            </div>
+            
+            <!-- Service Modal -->
+            <div id="serviceModal" class="service-modal">
+                <div class="modal-overlay"></div>
+                <div class="modal-content">
+                    <button class="modal-close" aria-label="Close">&times;</button>
+                    <div class="modal-icon"></div>
+                    <h3 class="modal-title"></h3>
+                    <ul class="modal-list"></ul>
                 </div>
             </div>
             <div class="services-footer">
