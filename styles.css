@@ -19,11 +19,14 @@ html {
 }
 
 body {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
+    font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.7;
     color: var(--text-gray);
     background-color: var(--primary-white);
     overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .container {
@@ -38,11 +41,13 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.05), 0 4px 24px rgba(0, 0, 0, 0.03);
     z-index: 1000;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
 }
 
 .nav-wrapper {
@@ -111,24 +116,27 @@ body {
     text-decoration: none;
     color: var(--text-gray);
     font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
+    font-size: 0.8rem;
+    letter-spacing: -0.01em;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
+    text-transform: uppercase;
 }
 
 .nav-link:hover {
     color: var(--primary-black);
+    transform: translateY(-1px);
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -6px;
     left: 0;
     width: 0;
-    height: 2px;
-    background-color: var(--primary-black);
-    transition: width 0.3s ease;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--primary-black), var(--accent-gray));
+    transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .nav-link:hover::after {
@@ -138,9 +146,20 @@ body {
 .lang-link {
     background-color: var(--primary-black);
     color: var(--primary-white);
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
+    padding: 0.5rem 1.125rem;
+    border-radius: 0;
     font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.lang-link:hover {
+    background-color: var(--accent-gray);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .lang-link::after {
@@ -237,60 +256,86 @@ body {
 }
 
 .hero-title {
-    font-size: 3.5rem;
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 700;
-    letter-spacing: 4px;
-    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
     animation: fadeInUp 1s ease 0.2s both;
     text-transform: uppercase;
+    line-height: 1.1;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .hero-divider {
-    width: 100px;
-    height: 2px;
-    background-color: var(--primary-white);
-    margin: 1.5rem auto;
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+    margin: 2rem auto;
     animation: fadeInUp 1s ease 0.4s both;
 }
 
 .hero-subtitle {
-    font-size: 1.5rem;
-    font-weight: 300;
-    letter-spacing: 3px;
-    margin-bottom: 2rem;
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    margin-bottom: 2.5rem;
     animation: fadeInUp 1s ease 0.6s both;
     text-transform: uppercase;
+    opacity: 0.85;
+    font-family: 'JetBrains Mono', monospace;
 }
 
 .hero-description {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin-bottom: 2.5rem;
-    color: rgba(255, 255, 255, 0.9);
-    max-width: 600px;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.75;
+    margin-bottom: 3rem;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 650px;
     margin-left: auto;
     margin-right: auto;
     animation: fadeInUp 1s ease 0.8s both;
+    font-weight: 300;
+    letter-spacing: -0.01em;
 }
 
 .btn-primary {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 1.125rem 2.75rem;
     background-color: var(--primary-white);
     color: var(--primary-black);
     text-decoration: none;
     font-weight: 600;
-    border-radius: 4px;
-    transition: all 0.3s ease;
+    border-radius: 0;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     animation: fadeInUp 1s ease 1s both;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 0.9rem;
+    letter-spacing: 0.1em;
+    font-size: 0.75rem;
+    position: relative;
+    overflow: hidden;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
 }
 
 .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(255, 255, 255, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
 }
 
 .scroll-indicator {
@@ -320,27 +365,44 @@ section {
 }
 
 .section-title {
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3rem);
     font-weight: 700;
     color: var(--primary-black);
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     text-transform: uppercase;
-    letter-spacing: 2px;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    font-family: 'Space Grotesk', sans-serif;
 }
 
 .section-divider {
-    width: 80px;
-    height: 3px;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--primary-black), transparent);
+    margin: 1.5rem auto;
+    position: relative;
+}
+
+.section-divider::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
     background-color: var(--primary-black);
-    margin: 1rem auto;
+    border-radius: 50%;
 }
 
 .section-intro {
-    font-size: 1.1rem;
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
     color: var(--text-gray);
     max-width: 800px;
-    margin: 2rem auto 0;
+    margin: 2.5rem auto 0;
     line-height: 1.8;
+    font-weight: 300;
+    letter-spacing: -0.01em;
 }
 
 /* About Section */
@@ -385,9 +447,9 @@ section {
 .service-card {
     background-color: var(--primary-white);
     border: 1px solid var(--border-gray);
-    border-radius: 8px;
-    padding: 2.5rem;
-    transition: all 0.3s ease;
+    border-radius: 0;
+    padding: 2.75rem;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
 }
@@ -397,21 +459,37 @@ section {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 3px;
     height: 100%;
-    background-color: var(--primary-black);
+    background: linear-gradient(180deg, var(--primary-black), var(--accent-gray));
     transform: scaleY(0);
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), transparent);
+    opacity: 0;
+    transition: opacity 0.4s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08), 0 0 0 1px rgba(0, 0, 0, 0.05);
     border-color: var(--primary-black);
 }
 
 .service-card:hover::before {
     transform: scaleY(1);
+}
+
+.service-card:hover::after {
+    opacity: 1;
 }
 
 .service-icon {
@@ -470,13 +548,36 @@ section {
 }
 
 .services-quote {
-    font-size: 1.2rem;
-    font-weight: 500;
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    font-weight: 400;
     color: var(--primary-black);
-    font-style: italic;
-    line-height: 1.8;
+    font-style: normal;
+    line-height: 1.75;
     max-width: 900px;
     margin: 0 auto;
+    letter-spacing: -0.01em;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.services-quote::before,
+.services-quote::after {
+    content: '"';
+    font-size: 3rem;
+    color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+}
+
+.services-quote::before {
+    left: 0;
+    top: -0.5rem;
+}
+
+.services-quote::after {
+    right: 0;
+    bottom: -2rem;
 }
 
 /* Contact Section */
