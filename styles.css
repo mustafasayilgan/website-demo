@@ -68,12 +68,17 @@ body {
 }
 
 .navbar-logo {
-    height: 45px;
+    height: 42px;
     width: auto;
     display: block;
     object-fit: contain;
     filter: brightness(0);
-    transition: opacity 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-link:hover .navbar-logo {
+    opacity: 0.75;
+    transform: scale(1.02);
 }
 
 .navbar-logo[src=""],
@@ -192,25 +197,32 @@ body {
 }
 
 .hero-logo {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
     animation: fadeInUp 1s ease;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0 1rem;
 }
 
 .logo-image {
-    max-width: 180px;
+    max-width: 140px;
     width: auto;
     height: auto;
     object-fit: contain;
-    filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(255, 255, 255, 0.15));
+    filter: brightness(0) invert(1) drop-shadow(0 10px 40px rgba(255, 255, 255, 0.2));
     opacity: 1;
     display: block;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.logo-image:hover {
+    transform: translateY(-3px);
+    filter: brightness(0) invert(1) drop-shadow(0 15px 50px rgba(255, 255, 255, 0.3));
 }
 
 .logo-white {
-    filter: brightness(0) invert(1) drop-shadow(0 8px 30px rgba(255, 255, 255, 0.15));
+    filter: brightness(0) invert(1) drop-shadow(0 10px 40px rgba(255, 255, 255, 0.2));
 }
 
 .logo-image[src=""],
@@ -529,13 +541,19 @@ section {
 }
 
 .footer-logo-image {
-    max-width: 120px;
+    max-width: 100px;
     width: auto;
     height: auto;
-    opacity: 0.9;
+    opacity: 0.85;
     object-fit: contain;
     filter: brightness(0) invert(1);
     display: block;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.footer-logo-image:hover {
+    opacity: 1;
+    transform: scale(1.05);
 }
 
 .footer-logo-image.logo-white {
@@ -665,11 +683,19 @@ section {
     }
 
     .logo-image {
-        max-width: 200px;
+        max-width: 100px;
+    }
+    
+    .hero-logo {
+        margin-bottom: 1.5rem;
     }
 
     .navbar-logo {
-        height: 32px;
+        height: 36px;
+    }
+    
+    .footer-logo-image {
+        max-width: 80px;
     }
 
     .btn-primary {
