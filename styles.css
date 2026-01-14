@@ -68,7 +68,7 @@ body {
 }
 
 .navbar-logo {
-    height: 42px;
+    height: 60px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -197,7 +197,7 @@ body {
 }
 
 .hero-logo {
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     animation: fadeInUp 1s ease;
     display: flex;
     justify-content: center;
@@ -205,7 +205,8 @@ body {
 }
 
 .hero-logo-img {
-    width: 140px;
+    width: 450px;
+    max-width: 90%;
     height: auto;
     object-fit: contain;
     filter: brightness(0) invert(1) drop-shadow(0 10px 40px rgba(255, 255, 255, 0.2));
@@ -215,7 +216,7 @@ body {
 }
 
 .hero-logo-img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
 }
 
 .logo-image {
@@ -271,15 +272,16 @@ body {
 }
 
 .hero-description {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     line-height: 1.9;
     margin-bottom: 3rem;
-    color: rgba(255, 255, 255, 0.85);
-    max-width: 650px;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
-    animation: fadeInUp 1s ease 0.8s both;
+    animation: fadeInUp 1s ease 0.4s both;
     font-weight: 300;
+    text-align: center;
 }
 
 .btn-primary {
@@ -554,7 +556,7 @@ section {
 }
 
 .footer-logo-image {
-    width: 100px;
+    width: 180px;
     height: auto;
     opacity: 0.9;
     object-fit: contain;
@@ -663,7 +665,12 @@ section {
     }
     
     .hero-logo-img {
-        width: 120px;
+        width: 350px;
+        max-width: 85%;
+    }
+    
+    .navbar-logo {
+        height: 50px;
     }
 
     .logo-image {
@@ -693,26 +700,17 @@ section {
 }
 
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.5rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.9rem;
-    }
-
-    .hero-title {
-        font-size: 1.5rem;
-        letter-spacing: 2px;
-    }
-
-    .hero-subtitle {
-        font-size: 0.85rem;
-        letter-spacing: 2px;
-    }
-
     .hero-logo-img {
-        width: 80px;
+        width: 280px;
+        max-width: 80%;
+    }
+
+    .navbar-logo {
+        height: 45px;
+    }
+    
+    .footer-logo-image {
+        width: 140px;
     }
     
     .logo-image {
