@@ -219,7 +219,7 @@ body {
 }
 
 .hero-logo {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     animation: fadeInUp 1s ease;
     display: flex;
     justify-content: center;
@@ -228,7 +228,7 @@ body {
 }
 
 .logo-image {
-    max-width: 160px;
+    max-width: 140px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -262,13 +262,13 @@ body {
 }
 
 .hero-title {
-    font-size: clamp(2.5rem, 8vw, 5rem);
+    font-size: clamp(2rem, 6vw, 3.5rem);
     font-weight: 700;
     letter-spacing: -0.02em;
     margin-bottom: 1.5rem;
     animation: fadeInUp 1s ease 0.2s both;
     text-transform: uppercase;
-    line-height: 1.1;
+    line-height: 1.2;
     font-family: 'Space Grotesk', sans-serif;
     white-space: nowrap;
     overflow: hidden;
@@ -279,26 +279,26 @@ body {
     width: 80px;
     height: 1px;
     background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
-    margin: 2rem auto;
+    margin: 1.5rem auto;
     animation: fadeInUp 1s ease 0.4s both;
 }
 
 .hero-subtitle {
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
     font-weight: 400;
     letter-spacing: 0.15em;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     animation: fadeInUp 1s ease 0.6s both;
     text-transform: uppercase;
-    opacity: 0.85;
+    opacity: 0.9;
     font-family: 'JetBrains Mono', monospace;
 }
 
 .hero-description {
     font-size: clamp(1rem, 1.5vw, 1.125rem);
     line-height: 1.75;
-    margin-bottom: 3rem;
-    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 2.5rem;
+    color: rgba(255, 255, 255, 0.9);
     max-width: 650px;
     margin-left: auto;
     margin-right: auto;
