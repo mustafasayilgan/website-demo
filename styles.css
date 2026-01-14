@@ -465,6 +465,9 @@ section {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    user-select: none;
+    -webkit-user-select: none;
+    z-index: 1;
 }
 
 .service-card::before {
@@ -489,6 +492,7 @@ section {
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.02), transparent);
     opacity: 0;
     transition: opacity 0.4s ease;
+    pointer-events: none;
 }
 
 .service-card:hover {
@@ -578,11 +582,13 @@ section {
     z-index: 2000;
     opacity: 0;
     transition: opacity 0.3s ease;
+    pointer-events: none;
 }
 
 .service-modal.active {
     display: flex;
     opacity: 1;
+    pointer-events: auto;
 }
 
 .modal-overlay {

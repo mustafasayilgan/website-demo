@@ -268,20 +268,32 @@ function getCurrentLanguage() {
 function openServiceModal(serviceIndex) {
     const lang = getCurrentLanguage();
     const service = serviceData[lang][serviceIndex];
+    
+    if (!service) {
+        console.error('Service not found:', serviceIndex);
+        return;
+    }
+    
     const modal = document.getElementById('serviceModal');
+    if (!modal) {
+        console.error('Modal not found');
+        return;
+    }
+    
     const modalIcon = modal.querySelector('.modal-icon');
     const modalTitle = modal.querySelector('.modal-title');
     const modalList = modal.querySelector('.modal-list');
     
-    modalIcon.innerHTML = service.icon;
-    modalTitle.textContent = service.title;
-    modalList.innerHTML = '';
-    
-    service.items.forEach(item => {
-        const li = document.createElement('li');
-        li.textContent = item;
-        modalList.appendChild(li);
-    });
+    if (modalIcon) modalIcon.innerHTML = service.icon;
+    if (modalTitle) modalTitle.textContent = service.title;
+    if (modalList) {
+        modalList.innerHTML = '';
+        service.items.forEach(item => {
+            const li = document.createElement('li');
+            li.textContent = item;
+            modalList.appendChild(li);
+        });
+    }
     
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
@@ -293,29 +305,58 @@ function closeServiceModal() {
     document.body.style.overflow = '';
 }
 
-// Service card click handlers
-document.querySelectorAll('.service-card').forEach(card => {
-    card.addEventListener('click', function() {
-        const serviceIndex = parseInt(this.getAttribute('data-service'));
-        openServiceModal(serviceIndex);
+// Initialize service modal functionality when DOM is ready
+function initServiceModal() {
+    // Service card click handlers
+    const serviceCards = document.querySelectorAll('.service-card');
+    console.log('Found service cards:', serviceCards.length);
+    
+    serviceCards.forEach((card, index) => {
+        card.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            const serviceIndex = parseInt(this.getAttribute('data-service'));
+            console.log('Card clicked, service index:', serviceIndex);
+            if (!isNaN(serviceIndex) && serviceIndex >= 0) {
+                openServiceModal(serviceIndex);
+            }
+        });
     });
-});
 
-// Modal close handlers
-const modalClose = document.querySelector('.modal-close');
-const modalOverlay = document.querySelector('.modal-overlay');
+    // Modal close handlers
+    const modalClose = document.querySelector('.modal-close');
+    const modalOverlay = document.querySelector('.modal-overlay');
 
-if (modalClose) {
-    modalClose.addEventListener('click', closeServiceModal);
-}
-
-if (modalOverlay) {
-    modalOverlay.addEventListener('click', closeServiceModal);
-}
-
-// Close modal on Escape key
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-        closeServiceModal();
+    if (modalClose) {
+        modalClose.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeServiceModal();
+        });
     }
-});
+
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', function(e) {
+            if (e.target === modalOverlay) {
+                closeServiceModal();
+            }
+        });
+    }
+
+    // Close modal on Escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const modal = document.getElementById('serviceModal');
+            if (modal && modal.classList.contains('active')) {
+                closeServiceModal();
+            }
+        }
+    });
+}
+
+// Initialize when DOM is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initServiceModal);
+} else {
+    // DOM is already loaded
+    initServiceModal();
+}
