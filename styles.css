@@ -74,14 +74,16 @@ body {
 .navbar-logo {
     height: 42px;
     width: auto;
-    display: block;
+    display: block !important;
     object-fit: contain;
-    filter: brightness(0);
+    filter: none;
+    opacity: 1 !important;
+    visibility: visible !important;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo-link:hover .navbar-logo {
-    opacity: 0.75;
+    opacity: 0.85 !important;
     transform: scale(1.02);
 }
 
