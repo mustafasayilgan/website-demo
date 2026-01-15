@@ -310,42 +310,8 @@ function initServiceCards() {
     const serviceCards = document.querySelectorAll('.service-card');
     
     serviceCards.forEach((card) => {
-        // 3D Tilt Effect
-        card.addEventListener('mousemove', function(e) {
-            if (this.classList.contains('flipped')) return;
-            
-            const rect = this.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = (y - centerY) / 15;
-            const rotateY = (centerX - x) / 15;
-            
-            const cardInner = this.querySelector('.service-card-inner');
-            if (cardInner) {
-                cardInner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
-            }
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            if (!this.classList.contains('flipped')) {
-                const cardInner = this.querySelector('.service-card-inner');
-                if (cardInner) {
-                    cardInner.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
-                }
-            }
-        });
-        
         card.addEventListener('click', function(e) {
             e.stopPropagation();
-            // Reset transform before flip
-            const cardInner = this.querySelector('.service-card-inner');
-            if (cardInner && !this.classList.contains('flipped')) {
-                cardInner.style.transform = '';
-            }
             // Toggle flip class
             this.classList.toggle('flipped');
             
