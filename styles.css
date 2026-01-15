@@ -29,52 +29,6 @@ body {
     font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    cursor: none; /* Hide default cursor on desktop */
-}
-
-/* Custom Cursor */
-.custom-cursor {
-    width: 10px;
-    height: 10px;
-    border: 2px solid var(--primary-black);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-    display: none;
-}
-
-.custom-cursor-follower {
-    width: 40px;
-    height: 40px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 50%;
-    position: fixed;
-    pointer-events: none;
-    z-index: 9998;
-    transform: translate(-50%, -50%);
-    transition: width 0.3s ease, height 0.3s ease, opacity 0.3s ease;
-    display: none;
-}
-
-body:hover .custom-cursor,
-body:hover .custom-cursor-follower {
-    display: block;
-}
-
-.custom-cursor.hover {
-    width: 30px;
-    height: 30px;
-    border-color: var(--primary-black);
-    background-color: rgba(0, 0, 0, 0.05);
-}
-
-.custom-cursor-follower.hover {
-    width: 60px;
-    height: 60px;
-    opacity: 0.5;
 }
 
 /* Scroll Progress Bar */
@@ -90,15 +44,6 @@ body:hover .custom-cursor-follower {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-@media (max-width: 768px) {
-    body {
-        cursor: auto;
-    }
-    .custom-cursor,
-    .custom-cursor-follower {
-        display: none !important;
-    }
-}
 
 .container {
     max-width: 1200px;

@@ -376,53 +376,6 @@ function initServiceCards() {
     });
 }
 
-// Custom Cursor
-function initCustomCursor() {
-    if (window.innerWidth <= 768) return;
-    
-    const cursor = document.querySelector('.custom-cursor');
-    const follower = document.querySelector('.custom-cursor-follower');
-    
-    if (!cursor || !follower) return;
-    
-    let mouseX = 0;
-    let mouseY = 0;
-    let followerX = 0;
-    let followerY = 0;
-    
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-        
-        cursor.style.left = mouseX + 'px';
-        cursor.style.top = mouseY + 'px';
-    });
-    
-    // Smooth follower animation
-    function animateFollower() {
-        followerX += (mouseX - followerX) * 0.1;
-        followerY += (mouseY - followerY) * 0.1;
-        
-        follower.style.left = followerX + 'px';
-        follower.style.top = followerY + 'px';
-        
-        requestAnimationFrame(animateFollower);
-    }
-    animateFollower();
-    
-    // Hover effects
-    const hoverElements = document.querySelectorAll('a, button, .service-card, .nav-link');
-    hoverElements.forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.classList.add('hover');
-            follower.classList.add('hover');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.classList.remove('hover');
-            follower.classList.remove('hover');
-        });
-    });
-}
 
 // Scroll Progress Bar
 function initScrollProgress() {
@@ -477,14 +430,12 @@ function initMagneticHover() {
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
         initServiceCards();
-        initCustomCursor();
         initScrollProgress();
         initParallax();
         initMagneticHover();
     });
 } else {
     initServiceCards();
-    initCustomCursor();
     initScrollProgress();
     initParallax();
     initMagneticHover();
