@@ -310,15 +310,53 @@ function initServiceCards() {
     const serviceCards = document.querySelectorAll('.service-card');
     
     serviceCards.forEach((card) => {
+        // 3D Tilt Effect
+        card.addEventListener('mousemove', function(e) {
+            if (this.classList.contains('flipped')) return;
+            
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = (y - centerY) / 15;
+            const rotateY = (centerX - x) / 15;
+            
+            const cardInner = this.querySelector('.service-card-inner');
+            if (cardInner) {
+                cardInner.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+            }
+        });
+        
+        card.addEventListener('mouseleave', function() {
+            if (!this.classList.contains('flipped')) {
+                const cardInner = this.querySelector('.service-card-inner');
+                if (cardInner) {
+                    cardInner.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                }
+            }
+        });
+        
         card.addEventListener('click', function(e) {
             e.stopPropagation();
+            // Reset transform before flip
+            const cardInner = this.querySelector('.service-card-inner');
+            if (cardInner && !this.classList.contains('flipped')) {
+                cardInner.style.transform = '';
+            }
             // Toggle flip class
             this.classList.toggle('flipped');
             
-            // Close other flipped cards (optional - remove if you want multiple cards open)
+            // Close other flipped cards
             serviceCards.forEach(otherCard => {
                 if (otherCard !== this && otherCard.classList.contains('flipped')) {
                     otherCard.classList.remove('flipped');
+                    const otherCardInner = otherCard.querySelector('.service-card-inner');
+                    if (otherCardInner) {
+                        otherCardInner.style.transform = '';
+                    }
                 }
             });
         });
@@ -329,14 +367,125 @@ function initServiceCards() {
         if (!e.target.closest('.service-card')) {
             serviceCards.forEach(card => {
                 card.classList.remove('flipped');
+                const cardInner = card.querySelector('.service-card-inner');
+                if (cardInner) {
+                    cardInner.style.transform = '';
+                }
             });
         }
     });
 }
 
+// Custom Cursor
+function initCustomCursor() {
+    if (window.innerWidth <= 768) return;
+    
+    const cursor = document.querySelector('.custom-cursor');
+    const follower = document.querySelector('.custom-cursor-follower');
+    
+    if (!cursor || !follower) return;
+    
+    let mouseX = 0;
+    let mouseY = 0;
+    let followerX = 0;
+    let followerY = 0;
+    
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+    });
+    
+    // Smooth follower animation
+    function animateFollower() {
+        followerX += (mouseX - followerX) * 0.1;
+        followerY += (mouseY - followerY) * 0.1;
+        
+        follower.style.left = followerX + 'px';
+        follower.style.top = followerY + 'px';
+        
+        requestAnimationFrame(animateFollower);
+    }
+    animateFollower();
+    
+    // Hover effects
+    const hoverElements = document.querySelectorAll('a, button, .service-card, .nav-link');
+    hoverElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+            follower.classList.add('hover');
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+            follower.classList.remove('hover');
+        });
+    });
+}
+
+// Scroll Progress Bar
+function initScrollProgress() {
+    const progressBar = document.querySelector('.scroll-progress');
+    if (!progressBar) return;
+    
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+}
+
+// Parallax Effect for Hero
+function initParallax() {
+    const heroContent = document.querySelector('.hero-content');
+    if (!heroContent) return;
+    
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero');
+        if (!hero) return;
+        
+        const heroHeight = hero.offsetHeight;
+        if (scrolled < heroHeight) {
+            heroContent.style.transform = `translateY(${scrolled * 0.3}px)`;
+            heroContent.style.opacity = 1 - (scrolled / heroHeight) * 0.5;
+        }
+    });
+}
+
+// Magnetic Hover Effect for Nav Links
+function initMagneticHover() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            
+            this.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) translateY(-1px)`;
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+}
+
 // Initialize when DOM is ready
 if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initServiceCards);
+    document.addEventListener('DOMContentLoaded', () => {
+        initServiceCards();
+        initCustomCursor();
+        initScrollProgress();
+        initParallax();
+        initMagneticHover();
+    });
 } else {
     initServiceCards();
+    initCustomCursor();
+    initScrollProgress();
+    initParallax();
+    initMagneticHover();
 }
