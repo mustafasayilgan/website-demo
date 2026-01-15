@@ -185,62 +185,10 @@ body {
     font-weight: 700;
 }
 
-.logo-container {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
 .logo-link {
     text-decoration: none;
     display: inline-block;
     transition: opacity 0.3s ease;
-}
-
-.construction-icon {
-    position: relative;
-    width: 24px;
-    height: 24px;
-    color: var(--primary-black);
-    opacity: 0.6;
-    animation: constructionFloat 3s ease-in-out infinite;
-    transition: all 0.3s ease;
-}
-
-.construction-icon svg {
-    width: 100%;
-    height: 100%;
-    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
-}
-
-@keyframes constructionFloat {
-    0%, 100% {
-        transform: translateY(0) rotate(0deg);
-        opacity: 0.6;
-    }
-    25% {
-        transform: translateY(-4px) rotate(-5deg);
-        opacity: 0.8;
-    }
-    50% {
-        transform: translateY(-2px) rotate(0deg);
-        opacity: 0.7;
-    }
-    75% {
-        transform: translateY(-4px) rotate(5deg);
-        opacity: 0.8;
-    }
-}
-
-.logo-link:hover .construction-icon {
-    opacity: 1;
-    transform: translateY(-2px) scale(1.1);
-    animation: constructionFloat 1.5s ease-in-out infinite;
-}
-
-.logo-link:hover .construction-icon svg {
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
 }
 
 .logo-link:hover {
@@ -1108,14 +1056,5 @@ section {
 
     .service-card {
         padding: 1.5rem;
-    }
-    
-    .construction-icon {
-        width: 20px;
-        height: 20px;
-    }
-    
-    .logo-container {
-        gap: 0.35rem;
     }
 }
