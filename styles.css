@@ -326,6 +326,22 @@ body {
     overflow: hidden;
 }
 
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('estefania-cortes-I9IbQWyOF9g-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    opacity: 0.12;
+    z-index: 0;
+    filter: grayscale(100%) brightness(0.3);
+}
+
 .hero-overlay {
     position: absolute;
     top: 0;
@@ -553,11 +569,12 @@ section {
     right: 0;
     width: 50%;
     height: 100%;
-    background-image: url('c-dustin-91AQt9p4Mo8-unsplash.jpg');
+    background-image: url('ivan-bandura-Wv2U24G2F78-unsplash.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.08;
+    opacity: 0.06;
     z-index: 0;
+    filter: grayscale(100%) brightness(1.1);
 }
 
 @media (max-width: 768px) {
@@ -643,18 +660,36 @@ section {
     left: 0;
     width: 40%;
     height: 60%;
-    background-image: url('shivendu-shukla-3yoTPuYR9ZY-unsplash.jpg');
+    background-image: url('james-sullivan-ESZRBtkQ_f8-unsplash.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.06;
+    opacity: 0.05;
     z-index: 0;
     pointer-events: none;
+    filter: grayscale(100%) brightness(1.2);
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 50%;
+    background-image: url('mufid-majnun-6203Ynp5ZqE-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.04;
+    z-index: 0;
+    pointer-events: none;
+    filter: grayscale(100%) brightness(1.3);
 }
 
 @media (max-width: 768px) {
-    .services::after {
+    .services::after,
+    .services::before {
         width: 100%;
-        opacity: 0.04;
+        opacity: 0.03;
     }
 }
 
@@ -709,6 +744,71 @@ section {
     -webkit-user-select: none;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     will-change: transform;
+    overflow: hidden;
+}
+
+.service-card-front::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.service-card[data-service="0"] .service-card-front::before {
+    background-image: url('jay-ee-qcBayvKvghM-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+.service-card[data-service="1"] .service-card-front::before {
+    background-image: url('ricardo-gomez-angel-7bzbyafVTYg-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+.service-card[data-service="2"] .service-card-front::before {
+    background-image: url('sven-mieke-fteR0e2BzKo-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+.service-card[data-service="3"] .service-card-front::before {
+    background-image: url('glenov-brankovic-qpdoTHwqkVc-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+.service-card[data-service="4"] .service-card-front::before {
+    background-image: url('ricardo-gomez-angel-jYNvXKTUYvs-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+.service-card[data-service="5"] .service-card-front::before {
+    background-image: url('mikita-yo-OLaa2RO2RRo-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: grayscale(100%) brightness(1.5);
+}
+
+.service-card:not(.flipped):hover .service-card-front::before {
+    opacity: 0.08;
+}
+
+.service-card-front > * {
+    position: relative;
+    z-index: 1;
 }
 
 .service-card-back {
@@ -935,17 +1035,39 @@ section {
     left: 0;
     width: 45%;
     height: 100%;
-    background-image: url('gabriel-alenius-cPDTVCsbxcg-unsplash.jpg');
+    background-image: url('glenov-brankovic-DWp5nUqTn6E-unsplash.jpg');
     background-size: cover;
     background-position: center;
-    opacity: 0.07;
+    opacity: 0.06;
     z-index: 0;
+    filter: grayscale(100%) brightness(1.1);
+}
+
+.contact::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40%;
+    height: 50%;
+    background-image: url('zoshua-colah-8W6z3Ow1JX4-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.05;
+    z-index: 0;
+    filter: grayscale(100%) brightness(1.2);
 }
 
 @media (max-width: 768px) {
-    .contact::before {
+    .contact::before,
+    .contact::after {
         width: 100%;
-        opacity: 0.05;
+        opacity: 0.04;
+    }
+    
+    .services::before {
+        width: 100%;
+        opacity: 0.03;
     }
 }
 
