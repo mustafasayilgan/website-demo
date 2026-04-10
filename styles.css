@@ -432,6 +432,25 @@ body {
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
+/* Space Grotesk’s & is heavy in all-caps; use mono ampersand + accent chip like brand lockups */
+.hero-brand-amp {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 500;
+    font-size: 0.62em;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.22em 0.5em 0.3em;
+    margin: 0 0.08em;
+    vertical-align: 0.12em;
+    color: #fff;
+    background: rgba(96, 165, 250, 0.38);
+    border: 1px solid rgba(186, 230, 253, 0.45);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+    text-shadow: none;
+}
+
 .hero-description {
     font-size: clamp(1rem, 1.5vw, 1.125rem);
     line-height: 1.75;
