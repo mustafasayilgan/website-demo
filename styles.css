@@ -1145,6 +1145,17 @@ section {
     color: rgba(255, 255, 255, 0.9);
 }
 
+.footer-brand-amp {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 1.12em;
+    line-height: 1;
+    letter-spacing: 0;
+    vertical-align: -0.04em;
+    color: inherit;
+}
+
 .footer-copyright {
     font-size: 0.9rem;
     color: rgba(255, 255, 255, 0.7);
