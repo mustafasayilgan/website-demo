@@ -205,6 +205,7 @@ body {
     display: block;
     object-fit: contain;
     filter: brightness(0);
+    image-rendering: auto;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     opacity: 1;
 }
@@ -396,6 +397,11 @@ body {
 .logo-image:hover {
     transform: translateY(-2px);
     filter: brightness(0) invert(1) drop-shadow(0 15px 50px rgba(255, 255, 255, 0.35));
+}
+
+.hero-logo .hero-logo-img {
+    max-width: min(220px, 48vw);
+    image-rendering: auto;
 }
 
 .logo-white {
@@ -1085,7 +1091,7 @@ section {
 }
 
 .footer-logo-image {
-    max-width: 100px;
+    max-width: 120px;
     width: auto;
     height: auto;
     opacity: 0.9;
@@ -1189,6 +1195,10 @@ section {
     .logo-image {
         max-width: 140px;
     }
+
+    .hero-logo .hero-logo-img {
+        max-width: min(190px, 52vw);
+    }
     
     .hero-logo {
         margin-bottom: 2rem;
@@ -1226,6 +1236,10 @@ section {
     .logo-image {
         max-width: 140px;
     }
+
+    .hero-logo .hero-logo-img {
+        max-width: min(160px, 58vw);
+    }
     
     .hero-logo {
         margin-bottom: 2rem;
@@ -1236,7 +1250,7 @@ section {
     }
     
     .footer-logo-image {
-        max-width: 80px;
+        max-width: 96px;
     }
 
     .btn-primary {
