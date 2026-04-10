@@ -200,7 +200,7 @@ body {
 }
 
 .navbar-logo {
-    height: 48px;
+    height: 56px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -381,7 +381,7 @@ body {
 }
 
 .logo-image {
-    max-width: 140px;
+    max-width: 160px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -400,7 +400,7 @@ body {
 }
 
 .hero-logo .hero-logo-img {
-    max-width: min(220px, 48vw);
+    max-width: min(280px, 55vw);
     image-rendering: auto;
 }
 
@@ -1091,7 +1091,7 @@ section {
 }
 
 .footer-logo-image {
-    max-width: 120px;
+    max-width: 140px;
     width: auto;
     height: auto;
     opacity: 0.9;
@@ -1193,11 +1193,11 @@ section {
     }
 
     .logo-image {
-        max-width: 140px;
+        max-width: 160px;
     }
 
     .hero-logo .hero-logo-img {
-        max-width: min(190px, 52vw);
+        max-width: min(240px, 56vw);
     }
     
     .hero-logo {
@@ -1234,11 +1234,11 @@ section {
     }
 
     .logo-image {
-        max-width: 140px;
+        max-width: 150px;
     }
 
     .hero-logo .hero-logo-img {
-        max-width: min(160px, 58vw);
+        max-width: min(200px, 62vw);
     }
     
     .hero-logo {
@@ -1246,11 +1246,11 @@ section {
     }
 
     .navbar-logo {
-        height: 40px;
+        height: 46px;
     }
     
     .footer-logo-image {
-        max-width: 96px;
+        max-width: 112px;
     }
 
     .btn-primary {
