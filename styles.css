@@ -157,9 +157,9 @@ body {
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1360px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 28px;
 }
 
 /* Navigation */
@@ -582,7 +582,7 @@ section {
 /* about pseudo-element disabled */
 
 .about-content {
-    max-width: 1200px;
+    max-width: 1360px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
