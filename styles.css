@@ -724,7 +724,7 @@ section {
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: 0.1;
+    opacity: var(--service-bg-opacity, 0.1);
     transition: opacity 0.4s ease, transform 0.6s ease;
     z-index: 0;
     pointer-events: none;
@@ -756,22 +756,25 @@ section {
 .service-card[data-service="3"] .service-card-front::before {
     background-image: url('glenov-brankovic-qpdoTHwqkVc-unsplash.jpg');
     background-size: cover;
-    background-position: center;
-    filter: brightness(1.4) saturate(0.6) contrast(1.1);
+    background-position: center 35%;
+    filter: brightness(1.2) saturate(0.75) contrast(1.2);
+    --service-bg-opacity: 0.16;
 }
 
 .service-card[data-service="4"] .service-card-front::before {
     background-image: url('ricardo-gomez-angel-jYNvXKTUYvs-unsplash.jpg');
     background-size: cover;
     background-position: center;
-    filter: brightness(1.4) saturate(0.6) contrast(1.1);
+    filter: brightness(1.1) saturate(0.9) contrast(1.25);
+    --service-bg-opacity: 0.16;
 }
 
 .service-card[data-service="5"] .service-card-front::before {
     background-image: url('mikita-yo-OLaa2RO2RRo-unsplash.jpg');
     background-size: cover;
-    background-position: center;
-    filter: brightness(1.4) saturate(0.6) contrast(1.1);
+    background-position: center 35%;
+    filter: brightness(1.1) saturate(0.85) contrast(1.25);
+    --service-bg-opacity: 0.18;
 }
 
 .service-card:not(.flipped):hover .service-card-front::before {
