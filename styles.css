@@ -917,7 +917,7 @@ section {
     justify-content: flex-start;
 }
 
-
+/* Disabled services quote block styles
 .services-footer {
     margin-top: 5rem;
     position: relative;
@@ -1007,6 +1007,8 @@ section {
         line-height: 1.7;
     }
 }
+*/
+
 
 /* Contact Section */
 .contact {
