@@ -432,21 +432,6 @@ body {
     text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* Space Grotesk’s default & is clunky in all-caps; mono ampersand at same scale reads cleaner */
-.hero-brand-amp {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 700;
-    font-size: 1.12em;
-    line-height: 1;
-    letter-spacing: 0;
-    text-transform: none;
-    margin: 0 0.06em;
-    vertical-align: -0.04em;
-    color: inherit;
-    text-shadow: 0 4px 30px rgba(0, 0, 0, 0.6), 0 2px 10px rgba(0, 0, 0, 0.4);
-}
-
 .hero-description {
     font-size: clamp(1rem, 1.5vw, 1.125rem);
     line-height: 1.75;
@@ -1169,17 +1154,6 @@ section {
     font-size: 1rem;
     margin-bottom: 0.5rem;
     color: rgba(255, 255, 255, 0.9);
-}
-
-.footer-brand-amp {
-    display: inline-block;
-    font-family: 'JetBrains Mono', monospace;
-    font-weight: 600;
-    font-size: 1.12em;
-    line-height: 1;
-    letter-spacing: 0;
-    vertical-align: -0.04em;
-    color: inherit;
 }
 
 .footer-copyright {
